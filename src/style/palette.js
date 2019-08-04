@@ -1,8 +1,10 @@
 export default {
 	primary: '#e84279',
-	primary_black: '#4a4a4a',
+	primary_dark: '#4a4a4a',
 	secondary: '#fefefe',
-	secondary_black: '#4a4a4a',
+	secondary_dark: '#4a4a4a',
 	text: '#4a4a4a',
-	text_black: '#4a4a4a'
+	text_dark: '#4a4a4a',
+	background_dark: '#808080',
+	background: '#fefefe'
 };
