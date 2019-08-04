@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme, { DEFAULT_THEME } from 'style/theme';
 import Header from 'components/header/Header';
-import NavBtn from 'components/navBtn/NavBtn';
 import { Flex } from 'style/Helpers';
+import Nav from 'components/nav/Nav';
 const Backdrop = styled.div`
 	background: ${(props) => props.theme.background};
 	color: ${(props) => props.theme.text};
@@ -11,12 +11,7 @@ const Backdrop = styled.div`
 	width: 100%;
 })
 `;
-const SideNav = styled.aside`
-	flex: 0 0 30%;
-	max-width: 30%;
-	padding: 20px;
-})
-`;
+
 const Container = styled(Flex)`
 	height: 100%;
 	position: relative;
@@ -45,10 +40,7 @@ export default class App extends React.Component {
 				<Backdrop>
 					<Header />
 					<Container>
-						<SideNav>
-							<NavBtn title="RANDOM" />
-							<NavBtn title="TRENDING" />
-						</SideNav>
+						<Nav />
 						<main />
 					</Container>
 				</Backdrop>
