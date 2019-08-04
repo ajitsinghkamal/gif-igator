@@ -8,7 +8,7 @@ const Logo = ({ theme }) => {
 			<EmText sz={32} wt={800} color={theme.primary}>
 				GIF
 			</EmText>
-			<Text sz={21}>tator</Text>
+			<Text sz={21}>igator</Text>
 		</Flex>
 	);
 };

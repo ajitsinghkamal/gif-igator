@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme, { DEFAULT_THEME } from 'style/theme';
-
+import Header from 'components/header/Header';
 const Backdrop = styled.div`
 	background: ${(props) => props.theme.background};
 	color: ${(props) => props.theme.text};
@@ -26,7 +26,9 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<ThemeProvider theme={this.state.theme}>
-				<Backdrop>hello</Backdrop>
+				<Backdrop>
+					<Header />
+				</Backdrop>
 			</ThemeProvider>
 		);
 	}
