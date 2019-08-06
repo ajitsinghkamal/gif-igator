@@ -8,6 +8,7 @@ const Wrap = styled.form`
 	flex: 1 0;
 	border: 0;
 	position: relative;
+	padding: 0 10px;
 `;
 const SearchInput = styled.input`
 	background: transparent;
@@ -19,9 +20,9 @@ const SearchInput = styled.input`
 	display: block;
 	border-radius: 10px;
 	transition: box-shadow 0.3s;
-	box-shadow: 0 0 0px 2px ${props => props.theme.accent};
+	box-shadow: 0 0 0px 2px ${props => props.theme.purple};
 	&:focus {
-		box-shadow: 0 0 0px 4px ${props => props.theme.accent};
+		box-shadow: 0 0 0px 4px ${props => props.theme.purple};
 	}
 `;
 const SearchAction = styled.button`

@@ -11,17 +11,16 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 const Backdrop = styled.div`
 	background: ${props => props.theme.background};
 	color: ${props => props.theme.text};
-	height: 100vh;
+	min-height: 100vh;
 	width: 100%;
+	overflow: auto;
 })
 `;
 
 const Base = styled(Container)`
 	height: 100%;
 	position: relative;
-	align-items: stretch;
 	padding-top: 68px;
-	display: flex;
 `;
 export default class App extends React.Component {
 	constructor(props) {

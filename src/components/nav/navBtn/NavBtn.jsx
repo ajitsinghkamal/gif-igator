@@ -5,14 +5,13 @@ import PropTypes from 'prop-types';
 const Btn = styled.button`
 	display: block;
 	border: 0;
-	height: 160px;
+	height: 60px;
 	width: 100%;
 	border-radius: 10px;
-	background: ${props => (props.color ? props.color : props.theme.accent)}
-	margin-bottom: 15px;
+	background: ${props => (props.color ? props.color : props.theme.purple)}
 	cursor: pointer;
 	&:hover {
-		border-right: 2px solid #d0d0d0;
+		border-bottom: 2px solid #d0d0d0;
 	}
 `;
 const NavBtn = ({ title }) => {

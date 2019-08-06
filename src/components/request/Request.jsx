@@ -4,6 +4,8 @@ import req from 'setupAxios';
 export default class Request extends React.Component {
 	static propTypes = {
 		query: PropTypes.string.isRequired,
+		offset: PropTypes.number.isRequired,
+		limit: PropTypes.number,
 		children: PropTypes.func.isRequired,
 	};
 
@@ -12,6 +14,7 @@ export default class Request extends React.Component {
 		this.state = {
 			error: null,
 			response: [],
+			fetching: false,
 		};
 		this.shouldFetch = this.shouldFetch.bind(this);
 	}
@@ -20,6 +23,8 @@ export default class Request extends React.Component {
 		req.get(this.props.query, {
 			params: {
 				api_key: process.env.REACT_APP_API_KEY,
+				limit: this.props.limit,
+				offset: this.props.offset,
 			},
 		})
 			.then(({ data }) => {
@@ -38,7 +43,7 @@ export default class Request extends React.Component {
 		this.shouldFetch();
 	}
 	componentDidUpdate(prevProps) {
-		if (prevProps.query !== this.props.query) {
+		if (prevProps.offset !== this.props.offset) {
 			this.shouldFetch();
 		}
 	}

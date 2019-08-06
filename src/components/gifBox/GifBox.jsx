@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 const Wrap = styled.div`
-	flex: 0 0 30%;
+	flex: 1 0 22%;
 	margin: 10px;
 	height: 250px;
-	width: 300px;
-	background: ${props => props.theme.green}
+	min-width: 300px;
+	background: ${props => props.theme.dusk} 
 	overflow: hidden;
 	border-radius: 10px;
+	box-shadow: -5px 7px 2px 2px ${props => props.theme.purple};
 	@media(max-width: 480px) {
 		min-width: 80%;
+	}
+	&:last-child {
+		flex-grow: 0;
 	}
 `;
 const Gif = styled.img`

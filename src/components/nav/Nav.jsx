@@ -6,29 +6,26 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Wrap = styled.aside`
-	flex: 0 0 25%;
-	max-width: 260px;
-	margin-right: 20px;
+	display: flex;
 	padding-top: 20px;
+	.tab {
+		flex: 1;
+		padding: 10px;
+	}
+	.tab.active > button {
+		border-bottom: 3px solid #fff;
+	}
 	@media(max-width: 768px) {
-		position: absolute;
-		height: 100%;
-		top: 0;
-		width: 100%;
-		padding-top: 78px;
-		background: #000;
-		transition: transform 0.3s;
-		transform: translateX(-100%);
 	}
 })
 `;
 const Nav = ({ theme }) => {
 	return (
 		<Wrap>
-			<NavLink to="/trending">
+			<NavLink to="/trending" className="tab">
 				<NavBtn title="TRENDING" color={theme.purple} />
 			</NavLink>
-			<NavLink to="/random">
+			<NavLink to="/random" className="tab">
 				<NavBtn title="RANDOM" />
 			</NavLink>
 		</Wrap>

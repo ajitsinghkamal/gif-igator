@@ -6,7 +6,6 @@ const Wrap = styled.div`
 	display: flex;
 	flex-flow: row wrap;
 	height: 100%;
-	overflow: auto;
 	position: relative;
 	padding: 12px 0;
 	flex: 1;
@@ -21,13 +20,18 @@ const Empty = styled.p`
 	text-align: center;
 `;
 const shouldMakeGrid = data => {
-	const _gridData = data && data.length ? data : Array(5).fill(null);
+	console.log(data); //eslint-disable-line
+	const _gridData = data && data.length ? data : Array(4).fill(null);
 	return _gridData.map((item, index) => {
-		return <GifBox key={(item && item.slug) || index} src={item} />;
+		return <GifBox key={index} src={item} />;
 	});
 };
 const Grid = ({ list, empty }) => {
-	return <Wrap>{empty ? <Empty>Nope!!</Empty> : shouldMakeGrid(list)}</Wrap>;
+	return (
+		<Wrap className="grid">
+			{empty ? <Empty>Nope!!</Empty> : shouldMakeGrid(list)}
+		</Wrap>
+	);
 };
 Grid.propTypes = {
 	list: PropTypes.array,
