@@ -1,40 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavBtn from './navBtn/NavBtn';
-import Shell from 'layout/shell/Shell';
-import Grid from 'views/grid/Grid';
+import { withTheme } from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import {
-	BrowserRouter as Router,
-	Route,
-	NavLink,
-	Redirect,
-} from 'react-router-dom';
 const Wrap = styled.aside`
-	flex: 0 0 30%;
-	max-width: 30%;
-	padding: 20px;
+	flex: 0 0 25%;
+	max-width: 260px;
+	margin-right: 20px;
+	padding-top: 20px;
+	@media(max-width: 768px) {
+		position: absolute;
+		height: 100%;
+		top: 0;
+		width: 100%;
+		padding-top: 78px;
+		background: #000;
+		transition: transform 0.3s;
+		transform: translateX(-100%);
+	}
 })
 `;
-const Nav = () => {
+const Nav = ({ theme }) => {
 	return (
-		<Router>
-			<Wrap>
-				<NavLink to="/random">
-					<NavBtn title="RANDOM" />
-				</NavLink>
-				<NavLink to="/trending">
-					<NavBtn title="TRENDING" />
-				</NavLink>
-			</Wrap>
-			<Route path="/" component={Shell}>
-				<Redirect to="/trending" />
-				<Route path="/random" component={Grid} />
-				<Route path="/search" component={Grid} />
-				<Route path="/trending" component={Grid} />
-			</Route>
-		</Router>
+		<Wrap>
+			<NavLink to="/trending">
+				<NavBtn title="TRENDING" color={theme.purple} />
+			</NavLink>
+			<NavLink to="/random">
+				<NavBtn title="RANDOM" />
+			</NavLink>
+		</Wrap>
 	);
 };
-
-export default Nav;
+Nav.propTypes = {
+	theme: PropTypes.object,
+};
+export default withTheme(Nav);

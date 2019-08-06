@@ -7,14 +7,18 @@ const Btn = styled.button`
 	border: 0;
 	height: 160px;
 	width: 100%;
-	border-radius: 20px;
-	background: pink;
-	margin: 15px;
+	border-radius: 10px;
+	background: ${props => (props.color ? props.color : props.theme.accent)}
+	margin-bottom: 15px;
+	cursor: pointer;
+	&:hover {
+		border-right: 2px solid #d0d0d0;
+	}
 `;
 const NavBtn = ({ title }) => {
 	return (
 		<Btn>
-			<EmText sz={25} wt={800}>
+			<EmText sz={25} wt={800} color="#d0d0d0">
 				{title}
 			</EmText>
 		</Btn>

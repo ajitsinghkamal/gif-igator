@@ -1,16 +1,30 @@
 import React from 'react';
-import { Flex } from 'style/Helpers';
+import { Container } from 'style/Helpers';
 import styled from 'styled-components';
 import Logo from 'components/shared/logo/Logo';
-const Container = styled(Flex)`
+import SearchBox from 'components/searchBox/SearchBox';
+const Wrap = styled(Container)`
 	position: fixed;
 	left: 0;
 	right: 0;
-	justify-content: center;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	justify-content: space-between;
+	background: ${props => props.theme.background};
 `;
-const Header = () => (
-	<Container as="header">
-		<Logo />
-	</Container>
-);
+
+const Header = () => {
+	return (
+		<Wrap as="header">
+			<Logo />
+			<SearchBox />
+		</Wrap>
+	);
+};
+
 export default Header;

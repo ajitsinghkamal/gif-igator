@@ -22,3 +22,9 @@ export const EmText = styled(Text)`
 	font-family: 'Poppins';
 	font-weight: ${props => (props.wt ? props.wt : '600')};
 `;
+
+export const Container = styled.div`
+	margin: 0 auto;
+	max-width: 1410px;
+	padding: 0 20px;
+`;

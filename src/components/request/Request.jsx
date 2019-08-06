@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import req from 'setupAxios';
 export default class Request extends React.Component {
 	static propTypes = {
-		query: PropTypes.object.isRequired,
+		query: PropTypes.string.isRequired,
 		children: PropTypes.func.isRequired,
 	};
 
-	// set default state for the data to be fetched
-	// and possible errors
 	constructor(props) {
 		super(props);
 		this.state = {
 			error: null,
 			response: [],
-			query: this.props.query,
 		};
+		this.shouldFetch = this.shouldFetch.bind(this);
 	}
 
-	componentDidMount() {
-		axios
-			.get()
+	shouldFetch() {
+		req.get(this.props.query, {
+			params: {
+				api_key: process.env.REACT_APP_API_KEY,
+			},
+		})
 			.then(({ data }) => {
 				this.setState({
 					response: data,
@@ -31,6 +32,15 @@ export default class Request extends React.Component {
 					error,
 				})
 			);
+	}
+
+	componentDidMount() {
+		this.shouldFetch();
+	}
+	componentDidUpdate(prevProps) {
+		if (prevProps.query !== this.props.query) {
+			this.shouldFetch();
+		}
 	}
 
 	render() {
