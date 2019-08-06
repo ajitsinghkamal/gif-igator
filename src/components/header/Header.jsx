@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'style/Helpers';
 import styled from 'styled-components';
-import Logo from 'components/shared/logo/Logo';
+import Logo from 'components/logo/Logo';
 import SearchBox from 'components/searchBox/SearchBox';
 const Wrap = styled(Container)`
 	position: fixed;

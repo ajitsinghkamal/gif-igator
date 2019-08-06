@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbtn component renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Navbtn component renders correctly in dark theme 1`] = `ShallowWrapper {}`;
+
+exports[`Navbtn component renders correctly in white theme 1`] = `ShallowWrapper {}`;
+
+exports[`Searchbox component renders correctly 1`] = `ShallowWrapper {}`;
