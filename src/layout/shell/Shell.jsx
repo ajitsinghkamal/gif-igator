@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import theme, { DEFAULT_THEME } from 'style/theme';
+import theme, { DEFAULT_THEME, SECONDARY_THEME } from 'style/theme';
 import Header from 'components/header/Header';
 import { Container } from 'style/Helpers';
 import Nav from 'components/nav/Nav';
@@ -22,18 +22,38 @@ const Base = styled(Container)`
 	position: relative;
 	padding-top: 68px;
 `;
+
+const Floating = styled.div`
+	position: fixed;
+	bottom: 20px;
+	height: 60px;
+	width: 60px;
+	right: 10px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: ${props => props.theme.background};
+	background: ${props => props.theme.purple};
+`;
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			activeTheme: this.defaultTheme,
-			theme: Object.assign({}, theme.base, theme[DEFAULT_THEME]),
+			theme: Object.assign({}, theme.base, theme.light),
 		};
 		this.updateTheme = this.updateTheme.bind(this);
 	}
-	updateTheme(newTheme) {
+	updateTheme() {
+		const newTheme =
+			this.state.activeTheme === DEFAULT_THEME
+				? SECONDARY_THEME
+				: DEFAULT_THEME;
 		this.setState({
 			activeTheme: newTheme,
+			theme: Object.assign({}, theme.base, theme[newTheme]),
 		});
 	}
 	render() {
@@ -50,6 +70,9 @@ export default class App extends React.Component {
 								<Route path="/search" component={Search} />
 								<Route path="/trending" component={Trending} />
 							</Route>
+							<Floating onClick={() => this.updateTheme()}>
+								Theme
+							</Floating>
 						</Base>
 					</Router>
 				</Backdrop>
