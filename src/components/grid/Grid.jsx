@@ -20,10 +20,14 @@ const Empty = styled.p`
 	text-align: center;
 `;
 const shouldMakeGrid = data => {
-	console.log(data); //eslint-disable-line
 	const _gridData = data && data.length ? data : Array(4).fill(null);
 	return _gridData.map((item, index) => {
-		return <GifBox key={index} src={item} />;
+		return (
+			<GifBox
+				key={item ? item.slug : index}
+				src={item && item.images.original.url}
+			/>
+		);
 	});
 };
 const Grid = ({ list, empty }) => {
@@ -36,6 +40,5 @@ const Grid = ({ list, empty }) => {
 Grid.propTypes = {
 	list: PropTypes.array,
 	empty: PropTypes.bool,
-	hasMore: PropTypes.bool,
 };
 export default Grid;

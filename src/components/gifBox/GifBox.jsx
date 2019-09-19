@@ -9,7 +9,6 @@ const Wrap = styled.div`
 	background: ${props => props.theme.dusk} 
 	overflow: hidden;
 	border-radius: 10px;
-	box-shadow: -5px 7px 2px 2px ${props => props.theme.purple};
 	@media(max-width: 480px) {
 		min-width: 80%;
 	}
@@ -25,11 +24,11 @@ const Gif = styled.img`
 const GifBox = ({ src }) => {
 	return (
 		<Wrap>
-			<Gif src={src && src.images.original.url} />
+			<Gif src={src} />
 		</Wrap>
 	);
 };
 GifBox.propTypes = {
-	src: PropTypes.object,
+	src: PropTypes.string,
 };
 export default GifBox;

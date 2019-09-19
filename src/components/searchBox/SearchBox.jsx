@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 export const Wrap = styled.form`
-	max-width: 80%;
+	max-width: 75%;
 	flex: 1 0;
 	border: 0;
 	position: relative;
@@ -13,10 +13,10 @@ export const Wrap = styled.form`
 export const SearchInput = styled.input`
 	background: transparent;
 	color: ${props => props.theme.text};
-	padding: 6px 12px;
+	padding: 6px 50px 6px 15px;
 	height: 3rem;
 	width: 100%;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	display: block;
 	border-radius: 10px;
 	transition: box-shadow 0.3s;
@@ -27,7 +27,7 @@ export const SearchInput = styled.input`
 `;
 const SearchAction = styled.button`
 	position: absolute;
-	right: 10px;
+	right: 8px;
 	background: ${props => props.theme.purple};
 	top: 0;
 	height: 100%;

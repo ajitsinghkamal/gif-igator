@@ -6,18 +6,18 @@ const Btn = styled.button`
 	display: block;
 	border: 0;
 	height: 60px;
-	width: 100%;
-	border-radius: 10px;
-	background: ${props => (props.color ? props.color : props.theme.purple)}
+	background: transparent;
 	cursor: pointer;
+	color: ${props => props.theme.text}
+	transition: opacity 0.3s;
 	&:hover {
-		border-bottom: 2px solid #d0d0d0;
+		opacity: 0.5
 	}
 `;
 const NavBtn = ({ title }) => {
 	return (
 		<Btn>
-			<EmText sz={25} wt={800} color="#d0d0d0">
+			<EmText sz={16} wt={800}>
 				{title}
 			</EmText>
 		</Btn>

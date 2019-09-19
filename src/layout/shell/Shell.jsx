@@ -26,15 +26,17 @@ const Base = styled(Container)`
 const Floating = styled.div`
 	position: fixed;
 	bottom: 20px;
-	height: 60px;
-	width: 60px;
+	height: 50px;
+	width: 90px;
 	right: 10px;
-	border-radius: 50%;
+	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	color: ${props => props.theme.background};
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
 	background: ${props => props.theme.purple};
 `;
 export default class App extends React.Component {
@@ -71,7 +73,9 @@ export default class App extends React.Component {
 								<Route path="/trending" component={Trending} />
 							</Route>
 							<Floating onClick={() => this.updateTheme()}>
-								Theme
+								{this.state.activeTheme === SECONDARY_THEME
+									? 'Dark Mode'
+									: 'Light Mode'}
 							</Floating>
 						</Base>
 					</Router>

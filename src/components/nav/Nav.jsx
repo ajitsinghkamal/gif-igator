@@ -9,13 +9,10 @@ const Wrap = styled.aside`
 	display: flex;
 	padding-top: 20px;
 	.tab {
-		flex: 1;
 		padding: 10px;
 	}
 	.tab.active > button {
-		border-bottom: 3px solid #fff;
-	}
-	@media(max-width: 768px) {
+		box-shadow: 0 4px 0px 0 ${props => props.theme.primary}
 	}
 })
 `;
